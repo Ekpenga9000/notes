@@ -1,0 +1,53 @@
+Note: Connecting Next.js to MySQL Database
+
+This note provides guidance on connecting Next.js to a MySQL database:
+
+Create a Folder: In the root directory of your Next.js application, create a new folder.
+
+Create Database Configuration File: Inside the newly created folder, create a file named db.js or database.js.
+
+Install MySQL Package: Ensure that MySQL is installed in your application by running npm install mysql.
+
+Navigate and Import MySQL:
+
+Navigate to the db.js or database.js file.
+Import the MySQL module by adding the following line:
+
+  const mysql = require("mysql");
+
+Create Database Connection Instance:
+
+Set up a connection instance for the MySQL database:
+
+const db = mysql.createConnection({
+    host: "localhost", 
+    user: "YourUsername",
+    password: "YourPassword", 
+    database: "testdb"
+});
+
+Check Database Connection:
+
+Write the connection check instance to verify if the database connection is successful:
+
+db.connect(err => {
+    if(err) {
+        console.error("Your custom error message: ", err);
+    } else {
+        console.log("Your custom connection message");
+    }
+});
+
+Export Database Configuration:
+
+Export your db.js or database.js file to make the database configuration accessible:
+
+module.exports = db;
+
+Integration with Application:
+
+Import the db.js or database.js file into the routes or controllers of your Next.js application.
+Important Note:
+
+This instruction is provided for importing MySQL without utilizing a database library for the project.
+Please note that this information is subject to review, and I encourage you to explore alternative methods for connecting MySQL to your Next.js application.
